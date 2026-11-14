@@ -157,7 +157,7 @@ def test_rate_limited_403_returns_unmeasurable_failure_not_empty_success(
     monkeypatch.setattr(subprocess, "run", fake_run)
 
     outcome = branch_exists_on_remote(
-        github_url="https://github.com/thewoolleyman/livespec",
+        github_url="https://github.com/livespec-ai/livespec",
         name="feat/foo",
     )
 

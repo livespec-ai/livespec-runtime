@@ -44,7 +44,7 @@ from livespec_runtime.hygiene_scan_types import CommandResult, CommandUnavailabl
 
 __all__: list[str] = []
 
-_REPO_URL = "https://github.com/thewoolleyman/livespec"
+_REPO_URL = "https://github.com/livespec-ai/livespec"
 _REPO = Path("/repo")
 _ORIGIN_URL = ("git", "-C", "/repo", "config", "--get", "remote.origin.url")
 _RATE_LIMIT = ("gh", "api", "--include", "rate_limit")
@@ -122,11 +122,11 @@ def test_a_repeated_branch_probe_is_revalidated_instead_of_refetched(
 
     assert unsafe_perform_io(first.unwrap()) is True
     assert unsafe_perform_io(second.unwrap()) is True
-    assert calls[0] == ["gh", "api", "repos/thewoolleyman/livespec/branches/conditional-probe"]
+    assert calls[0] == ["gh", "api", "repos/livespec-ai/livespec/branches/conditional-probe"]
     assert calls[1] == [
         "gh",
         "api",
-        "repos/thewoolleyman/livespec/branches/conditional-probe",
+        "repos/livespec-ai/livespec/branches/conditional-probe",
         "-H",
         'If-None-Match: "probe-etag"',
     ]
@@ -213,7 +213,7 @@ def test_an_unmeasured_403_stays_an_ordinary_failure(
     assert isinstance(outcome, IOFailure)
     failure = unsafe_perform_io(outcome.failure())
     assert isinstance(failure, GithubQueryFailed)
-    assert failure.argv.startswith("gh api repos/thewoolleyman/livespec/branches/")
+    assert failure.argv.startswith("gh api repos/livespec-ai/livespec/branches/")
     assert len(calls) == 1
 
 
@@ -237,7 +237,7 @@ def test_the_rate_limited_failure_still_names_a_command_an_operator_can_rerun(
     assert isinstance(outcome, IOFailure)
     failure = unsafe_perform_io(outcome.failure())
     assert isinstance(failure, _budget().GithubBudgetUnmeasurable)
-    assert failure.argv == "gh api repos/thewoolleyman/livespec/branches/rate-limited"
+    assert failure.argv == "gh api repos/livespec-ai/livespec/branches/rate-limited"
 
 
 class _Runner:

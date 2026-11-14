@@ -25,7 +25,7 @@ from livespec_runtime.cross_repo.providers.github import (
 
 __all__: list[str] = []
 
-_REPO = "https://github.com/thewoolleyman/livespec"
+_REPO = "https://github.com/livespec-ai/livespec"
 
 
 def test_query_pull_request_state_carries_the_state_on_the_success_track(

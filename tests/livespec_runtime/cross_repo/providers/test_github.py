@@ -80,7 +80,7 @@ def test_query_pull_request_state_returns_open(monkeypatch: pytest.MonkeyPatch) 
 
     monkeypatch.setattr(subprocess, "run", fake_run)
     state = query_pull_request_state(
-        github_url="https://github.com/thewoolleyman/livespec",
+        github_url="https://github.com/livespec-ai/livespec",
         number=42,
     )
     assert _answer(state) == "OPEN"
@@ -92,7 +92,7 @@ def test_query_pull_request_state_returns_merged(monkeypatch: pytest.MonkeyPatch
 
     monkeypatch.setattr(subprocess, "run", fake_run)
     state = query_pull_request_state(
-        github_url="https://github.com/thewoolleyman/livespec",
+        github_url="https://github.com/livespec-ai/livespec",
         number=42,
     )
     assert _answer(state) == "MERGED"
@@ -104,7 +104,7 @@ def test_query_pull_request_state_returns_closed(monkeypatch: pytest.MonkeyPatch
 
     monkeypatch.setattr(subprocess, "run", fake_run)
     state = query_pull_request_state(
-        github_url="https://github.com/thewoolleyman/livespec",
+        github_url="https://github.com/livespec-ai/livespec",
         number=42,
     )
     assert _answer(state) == "CLOSED"
@@ -119,7 +119,7 @@ def test_query_pull_request_state_invokes_gh_pr_view(monkeypatch: pytest.MonkeyP
 
     monkeypatch.setattr(subprocess, "run", fake_run)
     _ = query_pull_request_state(
-        github_url="https://github.com/thewoolleyman/livespec",
+        github_url="https://github.com/livespec-ai/livespec",
         number=42,
     )
     assert captured == [
@@ -129,7 +129,7 @@ def test_query_pull_request_state_invokes_gh_pr_view(monkeypatch: pytest.MonkeyP
             "view",
             "42",
             "--repo",
-            "https://github.com/thewoolleyman/livespec",
+            "https://github.com/livespec-ai/livespec",
             "--json",
             "state",
         ],
@@ -147,7 +147,7 @@ def test_branch_exists_on_remote_true_on_present(monkeypatch: pytest.MonkeyPatch
     assert (
         _answer(
             branch_exists_on_remote(
-                github_url="https://github.com/thewoolleyman/livespec",
+                github_url="https://github.com/livespec-ai/livespec",
                 name="feat/foo",
             )
         )
@@ -163,7 +163,7 @@ def test_branch_exists_on_remote_false_on_404(monkeypatch: pytest.MonkeyPatch) -
     assert (
         _answer(
             branch_exists_on_remote(
-                github_url="https://github.com/thewoolleyman/livespec",
+                github_url="https://github.com/livespec-ai/livespec",
                 name="missing",
             )
         )
@@ -178,7 +178,7 @@ def test_branch_exists_on_remote_propagates_non_404(monkeypatch: pytest.MonkeyPa
     monkeypatch.setattr(subprocess, "run", fake_run)
     failure = _failure(
         branch_exists_on_remote(
-            github_url="https://github.com/thewoolleyman/livespec",
+            github_url="https://github.com/livespec-ai/livespec",
             name="feat/foo",
         )
     )
@@ -194,7 +194,7 @@ def test_branch_exists_on_remote_propagates_when_stderr_empty(
     monkeypatch.setattr(subprocess, "run", fake_run)
     failure = _failure(
         branch_exists_on_remote(
-            github_url="https://github.com/thewoolleyman/livespec",
+            github_url="https://github.com/livespec-ai/livespec",
             name="feat/foo",
         )
     )
@@ -221,7 +221,7 @@ def test_branch_exists_on_remote_propagates_when_unrelated_404_substring(
     monkeypatch.setattr(subprocess, "run", fake_run)
     failure = _failure(
         branch_exists_on_remote(
-            github_url="https://github.com/thewoolleyman/livespec",
+            github_url="https://github.com/livespec-ai/livespec",
             name="feat/foo",
         )
     )
@@ -240,14 +240,14 @@ def test_branch_exists_on_remote_invokes_gh_api(monkeypatch: pytest.MonkeyPatch)
 
     monkeypatch.setattr(subprocess, "run", fake_run)
     _ = branch_exists_on_remote(
-        github_url="https://github.com/thewoolleyman/livespec",
+        github_url="https://github.com/livespec-ai/livespec",
         name="feat/foo",
     )
     assert captured == [
         [
             "gh",
             "api",
-            "repos/thewoolleyman/livespec/branches/feat/foo",
+            "repos/livespec-ai/livespec/branches/feat/foo",
         ],
     ]
 
@@ -255,7 +255,7 @@ def test_branch_exists_on_remote_invokes_gh_api(monkeypatch: pytest.MonkeyPatch)
 def test_branch_exists_on_remote_raises_on_non_canonical_url() -> None:
     with pytest.raises(NonCanonicalGithubUrlError):
         _ = branch_exists_on_remote(
-            github_url="git@github.com:thewoolleyman/livespec.git",
+            github_url="git@github.com:livespec-ai/livespec.git",
             name="feat/foo",
         )
 
@@ -273,7 +273,7 @@ def test_branch_merged_into_default_true_when_identical(
     assert (
         _answer(
             branch_merged_into_default(
-                github_url="https://github.com/thewoolleyman/livespec",
+                github_url="https://github.com/livespec-ai/livespec",
                 name="feat/foo",
                 default_branch="master",
             )
@@ -293,7 +293,7 @@ def test_branch_merged_into_default_true_when_behind(monkeypatch: pytest.MonkeyP
     assert (
         _answer(
             branch_merged_into_default(
-                github_url="https://github.com/thewoolleyman/livespec",
+                github_url="https://github.com/livespec-ai/livespec",
                 name="feat/foo",
                 default_branch="master",
             )
@@ -313,7 +313,7 @@ def test_branch_merged_into_default_false_when_ahead(monkeypatch: pytest.MonkeyP
     assert (
         _answer(
             branch_merged_into_default(
-                github_url="https://github.com/thewoolleyman/livespec",
+                github_url="https://github.com/livespec-ai/livespec",
                 name="feat/foo",
                 default_branch="master",
             )
@@ -335,7 +335,7 @@ def test_branch_merged_into_default_false_when_diverged(
     assert (
         _answer(
             branch_merged_into_default(
-                github_url="https://github.com/thewoolleyman/livespec",
+                github_url="https://github.com/livespec-ai/livespec",
                 name="feat/foo",
                 default_branch="master",
             )
@@ -358,7 +358,7 @@ def test_branch_merged_into_default_invokes_gh_api_compare(
 
     monkeypatch.setattr(subprocess, "run", fake_run)
     _ = branch_merged_into_default(
-        github_url="https://github.com/thewoolleyman/livespec",
+        github_url="https://github.com/livespec-ai/livespec",
         name="feat/foo",
         default_branch="master",
     )
@@ -366,7 +366,7 @@ def test_branch_merged_into_default_invokes_gh_api_compare(
         [
             "gh",
             "api",
-            "repos/thewoolleyman/livespec/compare/master...feat/foo",
+            "repos/livespec-ai/livespec/compare/master...feat/foo",
         ],
     ]
 
@@ -374,7 +374,7 @@ def test_branch_merged_into_default_invokes_gh_api_compare(
 def test_branch_merged_into_default_raises_on_non_canonical_url() -> None:
     with pytest.raises(NonCanonicalGithubUrlError):
         _ = branch_merged_into_default(
-            github_url="git@github.com:thewoolleyman/livespec.git",
+            github_url="git@github.com:livespec-ai/livespec.git",
             name="feat/foo",
             default_branch="master",
         )
@@ -394,7 +394,7 @@ def test_branch_merged_into_default_accepts_dot_git_suffix(
 
     monkeypatch.setattr(subprocess, "run", fake_run)
     _ = branch_merged_into_default(
-        github_url="https://github.com/thewoolleyman/livespec.git",
+        github_url="https://github.com/livespec-ai/livespec.git",
         name="feat/foo",
         default_branch="master",
     )
@@ -402,7 +402,7 @@ def test_branch_merged_into_default_accepts_dot_git_suffix(
         [
             "gh",
             "api",
-            "repos/thewoolleyman/livespec/compare/master...feat/foo",
+            "repos/livespec-ai/livespec/compare/master...feat/foo",
         ],
     ]
 
@@ -421,7 +421,7 @@ def test_branch_merged_into_default_accepts_trailing_slash(
 
     monkeypatch.setattr(subprocess, "run", fake_run)
     _ = branch_merged_into_default(
-        github_url="https://github.com/thewoolleyman/livespec/",
+        github_url="https://github.com/livespec-ai/livespec/",
         name="feat/foo",
         default_branch="master",
     )
@@ -429,7 +429,7 @@ def test_branch_merged_into_default_accepts_trailing_slash(
         [
             "gh",
             "api",
-            "repos/thewoolleyman/livespec/compare/master...feat/foo",
+            "repos/livespec-ai/livespec/compare/master...feat/foo",
         ],
     ]
 
@@ -474,7 +474,7 @@ def test_query_pull_request_state_reports_an_undecodable_response(
 
     failure = _failure(
         query_pull_request_state(
-            github_url="https://github.com/thewoolleyman/livespec",
+            github_url="https://github.com/livespec-ai/livespec",
             number=42,
         )
     )
@@ -495,7 +495,7 @@ def test_query_pull_request_state_reports_a_payload_missing_its_key(
 
     failure = _failure(
         query_pull_request_state(
-            github_url="https://github.com/thewoolleyman/livespec",
+            github_url="https://github.com/livespec-ai/livespec",
             number=42,
         )
     )
@@ -520,7 +520,7 @@ def test_branch_exists_on_remote_reports_an_unspawnable_gh(
 
     failure = _failure(
         branch_exists_on_remote(
-            github_url="https://github.com/thewoolleyman/livespec",
+            github_url="https://github.com/livespec-ai/livespec",
             name="feat/foo",
         )
     )
@@ -541,10 +541,10 @@ def test_branch_merged_into_default_reports_a_failed_compare(
 
     failure = _failure(
         branch_merged_into_default(
-            github_url="https://github.com/thewoolleyman/livespec",
+            github_url="https://github.com/livespec-ai/livespec",
             name="feat/foo",
             default_branch="master",
         )
     )
 
-    assert failure.argv.startswith("gh api repos/thewoolleyman/livespec/compare/")
+    assert failure.argv.startswith("gh api repos/livespec-ai/livespec/compare/")
