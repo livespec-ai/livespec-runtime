@@ -16,15 +16,15 @@ and the selected orchestrator plugin:
 
 ```bash
 # livespec CORE (spec-side prose + wrappers; no skills of its own):
-codex plugin marketplace add thewoolleyman/livespec
+codex plugin marketplace add livespec-ai/livespec
 codex plugin add livespec@livespec
 
 # The Codex Driver (supplies the spec-side /livespec:* operation surface):
-codex plugin marketplace add thewoolleyman/livespec-driver-codex
+codex plugin marketplace add livespec-ai/livespec-driver-codex
 codex plugin add livespec@livespec-driver-codex
 
 # The selected orchestrator plugin (ships its own Codex skills):
-codex plugin marketplace add thewoolleyman/livespec-orchestrator-beads-fabro
+codex plugin marketplace add livespec-ai/livespec-orchestrator-beads-fabro
 codex plugin add livespec-orchestrator-beads-fabro@livespec-orchestrator-beads-fabro
 ```
 
@@ -339,7 +339,7 @@ Situational operational notes live under `.ai/`, loaded on demand;
 `check-agents-ai-references-resolve` enforces that every reference resolves.
 
 - Read the fleet's distributed SendMessage protocol
-  (https://github.com/thewoolleyman/livespec-dev-tooling/blob/master/%2Eai/distributed-sendmessage-protocol.md)
+  (https://github.com/livespec-ai/livespec-dev-tooling/blob/master/%2Eai/distributed-sendmessage-protocol.md)
   BEFORE messaging, asking, directing or answering another agent session on
   any host, and before running `herdr pane send-text`, `herdr pane run`,
   `herdr agent prompt` or `tmux send-keys` against a pane you did not create.

@@ -46,9 +46,9 @@ _BRANCH_IS_NOT_MERGED = False
 
 _MANIFEST = CrossRepoManifest(
     targets={
-        "livespec": CrossRepoTarget(github_url="https://github.com/thewoolleyman/livespec"),
+        "livespec": CrossRepoTarget(github_url="https://github.com/livespec-ai/livespec"),
         "runtime": CrossRepoTarget(
-            github_url="https://github.com/thewoolleyman/livespec-runtime",
+            github_url="https://github.com/livespec-ai/livespec-runtime",
             default_branch="main",
         ),
     },

@@ -46,7 +46,7 @@ EMPTY_MANIFEST = CrossRepoManifest(targets={})
 SIBLING_MANIFEST = CrossRepoManifest(
     targets={
         "livespec-dev-tooling": CrossRepoTarget(
-            github_url="https://github.com/thewoolleyman/livespec-dev-tooling",
+            github_url="https://github.com/livespec-ai/livespec-dev-tooling",
         )
     }
 )

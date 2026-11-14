@@ -149,8 +149,8 @@ def test_pull_request_dependency_resolution_paths(monkeypatch: pytest.MonkeyPatc
     """
     manifest = _manifest_from_jsonc(
         block={
-            "livespec": {"github_url": "https://github.com/thewoolleyman/livespec"},
-            "livespec-runtime": {"github_url": "https://github.com/thewoolleyman/livespec-runtime"},
+            "livespec": {"github_url": "https://github.com/livespec-ai/livespec"},
+            "livespec-runtime": {"github_url": "https://github.com/livespec-ai/livespec-runtime"},
         }
     )
 
@@ -192,7 +192,7 @@ def test_pull_request_dependency_retry_exhaustion_is_unknown(
 
     monkeypatch.setattr(subprocess, "run", always_raise)
     manifest = _manifest_from_jsonc(
-        block={"livespec": {"github_url": "https://github.com/thewoolleyman/livespec"}}
+        block={"livespec": {"github_url": "https://github.com/livespec-ai/livespec"}}
     )
     entry = parse_depends_on_entry(
         parsed={"kind": "pull_request", "repo": "livespec", "number": 2}
@@ -220,7 +220,7 @@ def test_pull_request_dependency_unknown_repo_slug_is_unknown(
 
     monkeypatch.setattr(subprocess, "run", forbid_run)
     manifest = _manifest_from_jsonc(
-        block={"livespec": {"github_url": "https://github.com/thewoolleyman/livespec"}}
+        block={"livespec": {"github_url": "https://github.com/livespec-ai/livespec"}}
     )
     entry = parse_depends_on_entry(
         parsed={"kind": "pull_request", "repo": "livespec-runtime", "number": 2}
@@ -249,7 +249,7 @@ def test_branch_dependency_resolution_paths(monkeypatch: pytest.MonkeyPatch) -> 
     manifest = _manifest_from_jsonc(
         block={
             "livespec-runtime": {
-                "github_url": "https://github.com/thewoolleyman/livespec-runtime",
+                "github_url": "https://github.com/livespec-ai/livespec-runtime",
                 "default_branch": "master",
             }
         }
@@ -301,7 +301,7 @@ def test_non_canonical_github_url_raises_for_branch_provider() -> None:
     "tolerate-partial-visibility" contract, so the scenario is observed
     here at the provider boundary the Gherkin names.)
     """
-    offending = "git@github.com:thewoolleyman/livespec.git"
+    offending = "git@github.com:livespec-ai/livespec.git"
     with pytest.raises(NonCanonicalGithubUrlError) as excinfo:
         _ = branch_exists_on_remote(github_url=offending, name="feat/foo")
     assert excinfo.value.github_url == offending
@@ -342,7 +342,7 @@ def test_sibling_work_item_without_lookup_is_unknown(monkeypatch: pytest.MonkeyP
 
     monkeypatch.setattr(subprocess, "run", forbid_run)
     manifest = _manifest_from_jsonc(
-        block={"livespec": {"github_url": "https://github.com/thewoolleyman/livespec"}}
+        block={"livespec": {"github_url": "https://github.com/livespec-ai/livespec"}}
     )
     entry = parse_depends_on_entry(
         parsed={"kind": "sibling_work_item", "repo": "livespec", "work_item_id": "li-e7h6ki"}
@@ -392,7 +392,7 @@ def test_parse_cross_repo_manifest_accepts_minimal_target() -> None:
     defaults (`local_clone is None`, `default_branch == "master"`).
     """
     manifest = parse_cross_repo_manifest(
-        parsed={"livespec": {"github_url": "https://github.com/thewoolleyman/livespec"}}
+        parsed={"livespec": {"github_url": "https://github.com/livespec-ai/livespec"}}
     )
     assert set(manifest.targets) == {"livespec"}
     target = manifest.targets["livespec"]

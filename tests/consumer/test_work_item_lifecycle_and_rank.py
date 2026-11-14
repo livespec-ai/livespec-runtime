@@ -50,7 +50,7 @@ _SIBLING_ENTRY: DependsOnRaw = {
 # The manifest a consumer parses from its `.livespec.jsonc`; it DECLARES the
 # sibling repo, which the sibling scenario below shows is load-bearing.
 _MANIFEST = parse_cross_repo_manifest(
-    parsed={_SIBLING_REPO: {"github_url": "https://github.com/thewoolleyman/livespec"}}
+    parsed={_SIBLING_REPO: {"github_url": "https://github.com/livespec-ai/livespec"}}
 )
 _EMPTY_MANIFEST = CrossRepoManifest(targets={})
 
