@@ -3,7 +3,7 @@
 # Authority: SPECIFICATION/contracts.md §"Reusable workflows wire contract".
 #
 # Consumers invoke this workflow from their own ci.yml via
-# `uses: thewoolleyman/livespec-runtime/.github/workflows/reusable-check-matrix.yml@vX.Y.Z`
+# `uses: livespec-ai/livespec-runtime/.github/workflows/reusable-check-matrix.yml@vX.Y.Z`
 # (with `with: { checks: '["slug1", "slug2", ...]' }`).
 #
 # Strategy: matrix over the `checks` input array; each matrix entry
@@ -51,7 +51,7 @@ jobs:
       - name: Checkout livespec-runtime Actions
         uses: actions/checkout@v4
         with:
-          repository: thewoolleyman/livespec-runtime
+          repository: livespec-ai/livespec-runtime
           ref: ${{ inputs.ref }}
           path: .livespec-runtime-actions
 
