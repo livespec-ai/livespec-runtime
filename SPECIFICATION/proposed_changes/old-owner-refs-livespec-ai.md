@@ -13,7 +13,7 @@ created_at: 2026-11-16T18:48:04Z
 
 ### Summary
 
-Repoint the four live-spec references that name the old GitHub owner thewoolleyman to the livespec-ai organization.
+Repoint the six live-spec references that name the old GitHub owner thewoolleyman to the livespec-ai organization.
 
 ### Motivation
 
