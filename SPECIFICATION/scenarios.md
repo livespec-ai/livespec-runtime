@@ -7,7 +7,7 @@ here.
 
 ## Scenario: resolve a closed pull-request dependency
 
-Given a CrossRepoManifest declaring repo slug "livespec" with github_url "https://github.com/thewoolleyman/livespec"
+Given a CrossRepoManifest declaring repo slug "livespec" with github_url "https://github.com/livespec-ai/livespec"
 And a PullRequestDependency with repo "livespec" and number 166
 And gh pr view returns state "MERGED" on the first call
 When resolve_ref is invoked with the entry, the manifest, and any local_status_lookup
@@ -16,7 +16,7 @@ And the retry layer makes exactly one gh invocation
 
 ## Scenario: resolve an open pull-request dependency
 
-Given a CrossRepoManifest declaring repo slug "livespec-runtime" with github_url "https://github.com/thewoolleyman/livespec-runtime"
+Given a CrossRepoManifest declaring repo slug "livespec-runtime" with github_url "https://github.com/livespec-ai/livespec-runtime"
 And a PullRequestDependency with repo "livespec-runtime" and number 2
 And gh pr view returns state "OPEN" on the first call
 When resolve_ref is invoked
@@ -101,7 +101,7 @@ And the error detail names "number" as the missing field
 
 ## Scenario: parse_cross_repo_manifest accepts minimal target
 
-Given a dict {"livespec": {"github_url": "https://github.com/thewoolleyman/livespec"}}
+Given a dict {"livespec": {"github_url": "https://github.com/livespec-ai/livespec"}}
 When parse_cross_repo_manifest is invoked
 Then the result is a CrossRepoManifest with one target keyed by "livespec"
 And that target's local_clone is None
@@ -116,7 +116,7 @@ And the error detail names "github_url" as the missing field for slug "livespec"
 
 ## Scenario: non-canonical github_url raises NonCanonicalGithubUrlError
 
-Given a github_url "git@github.com:thewoolleyman/livespec.git"
+Given a github_url "git@github.com:livespec-ai/livespec.git"
 And a BranchDependency referring to that target
 And the provider's branch_exists_on_remote is invoked with that url
 When the provider tries to split the owner/name

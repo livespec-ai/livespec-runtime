@@ -1043,7 +1043,7 @@ dev = [
 ]
 
 [tool.uv.sources]
-livespec-runtime = { git = "https://github.com/thewoolleyman/livespec-runtime.git", tag = "v0.31.1" } # x-release-please-version
+livespec-runtime = { git = "https://github.com/livespec-ai/livespec-runtime.git", tag = "v0.31.1" } # x-release-please-version
 ```
 
 Or as a runtime dependency:
@@ -1055,7 +1055,7 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-livespec-runtime = { git = "https://github.com/thewoolleyman/livespec-runtime.git", tag = "v0.31.1" } # x-release-please-version
+livespec-runtime = { git = "https://github.com/livespec-ai/livespec-runtime.git", tag = "v0.31.1" } # x-release-please-version
 ```
 
 The tag value in `[tool.uv.sources]` MUST match the `compat.pinned`
