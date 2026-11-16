@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.31.1](https://github.com/livespec-ai/livespec-runtime/compare/v0.31.0...v0.31.1) (2026-11-16)
+
+
+### Bug Fixes
+
+* **coverage:** the suite coverage omits the test modules and measures first-party source (livespec-runtime-ghrshd) ([0946d4b](https://github.com/livespec-ai/livespec-runtime/commit/0946d4b6b8f6e00220c4d8efca05e1777d9edb3b))
+
 ## [0.31.0](https://github.com/livespec-ai/livespec-runtime/compare/v0.30.4...v0.31.0) (2026-11-15)
 
 
