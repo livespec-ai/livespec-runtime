@@ -1,0 +1,12 @@
+# Workflow-edit exemption — one exemption binds to one reviewed change.
+#
+# The change (plan stale-base-merge-options, epic livespec-dev-tooling-xowhol;
+# carrier livespec-dev-tooling-frkuef): ci.yml gains the guarded merge_group
+# trigger so the org merge queue can run. Maintainer ruling 2026-11-16: turn on
+# the merge queue for every repo in the org. Logically additive (the same jobs run
+# plus one tiny hosted guard job; not significantly slower), authorized by
+# throughput-plans-coordinator under the coordinator-duties section 12 additive
+# delegation. Existing runs-on and comment lines are rewritten, so the line-diff
+# guard reads this as the maintainer tier and the item needs a workflow-edit label.
+work_item=livespec-runtime-dcaetb
+reason=Guarded merge_group trigger so the org merge queue can run: merge-group-guard job, guard in needs of every gating job, runs-on conditioned on the guard output; logically additive, coordinator-authorized 2026-11-16 (maintainer ruling on epic livespec-dev-tooling-xowhol).

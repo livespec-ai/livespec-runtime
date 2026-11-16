@@ -172,6 +172,12 @@ livespec-dev-tooling = { git = "https://github.com/livespec-ai/livespec-dev-tool
 # `tests/consumer/` (node-id prefix `tests.consumer`); `tests.e2e` is
 # listed for forward room should an e2e tier be added.
 [tool.livespec_dev_tooling]
+# The merge queue's trusted authors (org merge-queue cutover, carrier
+# livespec-dev-tooling-frkuef). ci.yml's merge-group-guard reads this list at the
+# merge group's BASE commit and routes the group to hosted capacity unless every
+# queued PR is same-repository and authored by a name on it. The personal-account
+# factory bot stays until every dispatch host mints as the org App.
+merge_queue_author_allowlist = ["thewoolleyman", "thewoolleyman-factory-bot", "livespec-ai-factory-bot", "livespec-ai-factory-bot[bot]"]
 # Phase-2 file_lloc FLIP (fleet-check-coverage epic livespec-i5ebqd, track
 # livespec-8x7d). With this key true, `file_lloc` hard-gates this repo's WHOLE
 # git-derived first-party-.py universe (>250 LLOC => error/exit 1) instead of
