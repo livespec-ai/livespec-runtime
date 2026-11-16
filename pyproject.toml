@@ -541,6 +541,9 @@ omit = [
     "/tmp/*",
     "/private/var/folders/*",
     "mutants/*",
+    # Test scaffolding is not first-party source: the fleet coverage policy
+    # omits it through this blocklist (livespec-runtime-ghrshd).
+    "tests/*",
     # Verbatim CC0 third-party port (decision 38, G-1) — carried
     # source-only in the first-party tree (no `_vendor/` machinery in
     # livespec_runtime), excluded from the type/coverage gates like any
