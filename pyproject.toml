@@ -188,6 +188,12 @@ scenario_tiers = ["tests.consumer", "tests.e2e"]
 # repository opt-in AND the pushing host's gates credential are both present.
 # Sandboxes and other ineligible hosts retain the local aggregate fall-through.
 delegated_gate = true
+# Gate Job size, matched to measured draw (plan gate-job-resources, livespec-dev-tooling-ukoeah):
+# Honeycomb k8s.pod.cpu.usage / k8s.pod.memory.working_set over the 24 h to 2026-11-16 19:0xZ, pods
+# gate-<this repo>-*: cpu P95 2.57 (max 2.57), memory max 0.54 GiB. The values add headroom.
+# Revert trigger: a gate CPU-throttled into a timeout, or gate wall-time p50 up over 25 % in 2 h.
+gate_cpu = 3
+gate_memory = "2Gi"
 repo_local_ci_skips = [
     { slug = "check-no-workflow-edits", reason = "Local and janitor authorship control; the canonical guard explicitly exits without evaluation under GITHUB_ACTIONS because CI has no local author to control." },
 ]
