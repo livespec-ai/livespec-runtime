@@ -524,6 +524,9 @@ testpaths = ["tests"]
 addopts = [
     "--strict-markers",
     "--strict-config",
+    # Keep subprocess coverage data on the same branch-coverage configuration
+    # when a caller supplies the otherwise-bare ``--cov=<package>`` spelling.
+    "--cov-config=pyproject.toml",
     # `--import-mode=importlib` lets paired tests share a basename
     # across mirror trees without pytest's legacy `prepend` mode
     # triggering same-basename module collisions.
