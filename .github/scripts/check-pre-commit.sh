@@ -21,6 +21,8 @@ if [[ -z "$py_staged" ]]; then
     exit
 fi
 
+uv run python -m livespec_dev_tooling.workflow_checks.staged_precheck
+
 if [[ "$test_count" -eq 1 ]] && [[ "$impl_count" -eq 0 ]]; then
     echo ":: Red-mode shape detected: $test_staged"
     echo ":: skipping coverage gates (commit-msg replay hook is the verifier; coverage runs at Green amend)"
