@@ -297,7 +297,7 @@ jobs:
     if: ${{ !cancelled() && needs.merge-group-guard.outputs.skip != 'true' }}
     runs-on: ${{ needs.merge-group-guard.outputs.trusted == 'true' && fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') || 'ubuntu-latest' }}
     container:
-      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.219.1
+      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.220.0
     env:
       MISE_DATA_DIR: /root/.local/share/mise
       MISE_NOT_FOUND_AUTO_INSTALL: "0"
@@ -375,7 +375,7 @@ jobs:
     if: ${{ !cancelled() && needs.merge-group-guard.outputs.skip != 'true' }}
     runs-on: ${{ needs.merge-group-guard.outputs.trusted == 'true' && fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') || 'ubuntu-latest' }}
     container:
-      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.219.1
+      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.220.0
     env:
       MISE_DATA_DIR: /root/.local/share/mise
       MISE_NOT_FOUND_AUTO_INSTALL: "0"
@@ -437,7 +437,7 @@ jobs:
     if: ${{ !cancelled() && needs.check-per-file-coverage.result == 'success' && needs.merge-group-guard.outputs.skip != 'true' }}
     runs-on: ${{ needs.merge-group-guard.outputs.trusted == 'true' && fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') || 'ubuntu-latest' }}
     container:
-      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.219.1
+      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.220.0
     env:
       MISE_DATA_DIR: /root/.local/share/mise
       MISE_NOT_FOUND_AUTO_INSTALL: "0"
@@ -499,7 +499,7 @@ jobs:
     if: ${{ !cancelled() && needs.merge-group-guard.outputs.skip != 'true' }}
     runs-on: ${{ needs.merge-group-guard.outputs.trusted == 'true' && fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') || 'ubuntu-latest' }}
     container:
-      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.219.1
+      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.220.0
     env:
       MISE_DATA_DIR: /root/.local/share/mise
       MISE_NOT_FOUND_AUTO_INSTALL: "0"
@@ -558,7 +558,7 @@ jobs:
     if: ${{ !cancelled() && needs.merge-group-guard.outputs.skip != 'true' }}
     runs-on: ${{ needs.merge-group-guard.outputs.trusted == 'true' && fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') || 'ubuntu-latest' }}
     container:
-      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.219.1
+      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.220.0
     env:
       MISE_DATA_DIR: /root/.local/share/mise
       MISE_NOT_FOUND_AUTO_INSTALL: "0"
@@ -685,7 +685,7 @@ jobs:
     if: ${{ !cancelled() && needs.merge-group-guard.outputs.skip != 'true' }}
     runs-on: ${{ needs.merge-group-guard.outputs.trusted == 'true' && fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') || 'ubuntu-latest' }}
     container:
-      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.219.1
+      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.220.0
     env:
       MISE_DATA_DIR: /root/.local/share/mise
       MISE_NOT_FOUND_AUTO_INSTALL: "0"
@@ -776,7 +776,7 @@ jobs:
     if: ${{ !cancelled() && needs.merge-group-guard.outputs.skip != 'true' }}
     runs-on: ${{ needs.merge-group-guard.outputs.trusted == 'true' && fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') || 'ubuntu-latest' }}
     container:
-      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.219.1
+      image: ghcr.io/livespec-ai/livespec-fabro-sandbox:python-v1.220.0
     env:
       MISE_DATA_DIR: /root/.local/share/mise
       MISE_NOT_FOUND_AUTO_INSTALL: "0"
