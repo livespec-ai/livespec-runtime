@@ -1,0 +1,2 @@
+work_item=livespec-runtime-77urkn
+reason=Widen the export-telemetry job condition to also run for merge_group events so merge-queue runs emit ci.run spans to Honeycomb (maintainer ruling 2026-11-17; reference livespec-dev-tooling-pixkgb).
