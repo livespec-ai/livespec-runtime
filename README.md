@@ -4,7 +4,7 @@ Built with [livespec](https://livespec-ai.org/)
 
 Shared runtime library for livespec-governed projects.
 
-Hosts runtime code consumed by canonical [`livespec`](https://github.com/livespec-ai/livespec) skills, impl-plugin skills, doctor invariants, hooks, and CI workflows. Initial scope is `livespec_runtime.cross_repo` (cross-repo work-item dependency resolution per `livespec/SPECIFICATION/contracts.md` §"Cross-repo dependency awareness").
+Hosts runtime code consumed by canonical [`livespec`](https://github.com/livespec-ai/livespec) skills, impl-plugin skills, doctor invariants, hooks, and CI workflows. Its first module was `livespec_runtime.cross_repo` (cross-repo work-item dependency resolution per `livespec/SPECIFICATION/contracts.md` §"Cross-repo dependency awareness"); the package now also carries `github_auth`, `github_budget`, `hygiene_scan`, `needs_attention`, `spec_governance` and `work_items`.
 
 This library is NOT enforcement-suite code — those live in [`livespec-dev-tooling`](https://github.com/livespec-ai/livespec-dev-tooling). The split is intentional: enforcement-suite is build-time tooling consumed via `[dependency-groups].dev`; runtime is invoked at sub-command execution time and consumed via `[project.dependencies]` or `[dependency-groups].dev` depending on the consumer.
 
