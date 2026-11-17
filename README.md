@@ -40,7 +40,7 @@ livespec-runtime = { git = "https://github.com/livespec-ai/livespec-runtime.git"
 
 ## Governance
 
-- The `SPECIFICATION/` tree at the repo root is the live spec for this library, governed by livespec via its own seeded template (per epic `li-6d2wpj` Phase: seed). Until seeded, livespec sub-commands targeting this tree fail-fast with a precondition error directing the user to seed first.
+- The `SPECIFICATION/` tree at the repo root is the live spec for this library, governed by livespec via its own seeded template (seeded under epic `li-6d2wpj`; later revisions accrete under `SPECIFICATION/history/`).
 - This library's own impl tracking lives in a per-repo beads/Dolt **tenant database** on the shared dolt-server (tenant `livespec-runtime`), via [`livespec-orchestrator-beads-fabro`](https://github.com/livespec-ai/livespec-orchestrator-beads-fabro); the beads client config is committed at `.beads/config.yaml`. The pre-cutover plaintext `work-items.jsonl` / `memos.jsonl` snapshot is frozen read-only under [`archive/`](archive/README.md).
 - The `compat` block on the `livespec-runtime` top-level key in `.livespec.jsonc` pins this library's compatibility with `livespec-core` per the pin-and-bump contract.
 
