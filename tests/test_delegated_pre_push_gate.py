@@ -98,3 +98,13 @@ def test_aggregate_refuses_to_run_with_an_undeclared_member() -> None:
 
     assert declaration_audit in script
     assert script.index(declaration_audit) < script.index('for target in "${targets[@]}"')
+
+
+def test_a_green_token_match_does_not_exit_before_the_gate() -> None:
+    """A token match must not skip members that read state outside the tree."""
+    script = (_ROOT / ".github/scripts/check-pre-push.sh").read_text(encoding="utf-8")
+    token = script.index("livespec_dev_tooling.green_token check")
+    delegate = script.index(f"uv run python -m {_DELEGATE_MODULE} enabled")
+
+    assert "exit 0" not in script[token:delegate]
+    assert "NOT skipping the aggregate" in script[token:delegate]
