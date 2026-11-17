@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.32.0](https://github.com/livespec-ai/livespec-runtime/compare/v0.31.1...v0.32.0) (2026-11-17)
+
+
+### Features
+
+* red ([28dd914](https://github.com/livespec-ai/livespec-runtime/commit/28dd914320d84987d48823494af1b8eb4f3ff804))
+
 ## [0.31.1](https://github.com/livespec-ai/livespec-runtime/compare/v0.31.0...v0.31.1) (2026-11-16)
 
 
