@@ -50,4 +50,6 @@ The livespec family dogfoods its own telemetry. CI runs, Red→Green commit-gate
 
 - **[livespec family — all activity](https://ui.honeycomb.io/thewoolleyweb/environments/livespec/board/krThv8DvcwS)** — the cross-repo activity board (Honeycomb, `livespec` environment).
 
+## Merging
+
 Pull requests land on master through the livespec-ai merge queue (ruleset master-incident-recovery-bypass); ci-green is the required check.
