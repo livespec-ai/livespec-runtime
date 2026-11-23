@@ -607,3 +607,6 @@ check-ci-single-container-image:
 
 check-no-ambient-environment-loops:
     uv run python -m livespec_dev_tooling.checks.no_ambient_environment_loops
+
+check-hook-template-sandbox-image-path:
+    uv run python -m livespec_dev_tooling.checks.hook_template_sandbox_image_path
