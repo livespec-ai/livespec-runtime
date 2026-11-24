@@ -423,8 +423,8 @@ wheels = [
 
 [[package]]
 name = "livespec-dev-tooling"
-version = "1.234.1"
-source = { git = "https://github.com/livespec-ai/livespec-dev-tooling.git?tag=v1.234.1#25292f0434971ed57ec8e11f1645ade230dfb259" }
+version = "1.237.0"
+source = { git = "https://github.com/livespec-ai/livespec-dev-tooling.git?tag=v1.237.0#38b823e19d2d5ee77a2bca5dbd02f344d73e0afb" }
 dependencies = [
     { name = "anyio" },
     { name = "typing-extensions" },
@@ -467,7 +467,7 @@ dev = [
     { name = "hypothesis", specifier = "==6.122.3" },
     { name = "hypothesis-jsonschema", specifier = "==0.23.1" },
     { name = "import-linter", specifier = "==2.1" },
-    { name = "livespec-dev-tooling", git = "https://github.com/livespec-ai/livespec-dev-tooling.git?tag=v1.234.1" },
+    { name = "livespec-dev-tooling", git = "https://github.com/livespec-ai/livespec-dev-tooling.git?tag=v1.237.0" },
     { name = "mutmut", specifier = "==3.2.3" },
     { name = "nodejs-wheel-binaries", specifier = "==24.19.0" },
     { name = "pyright", specifier = "==1.1.391" },
